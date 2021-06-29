@@ -1,7 +1,4 @@
-import yaml
-import json
+import main
+from Utils.utils import hotel_management_constants
 
-with open('constants.yaml') as config:
-    cons = yaml.safe_load(config)
-
-print(cons)
+print(hotel_management_constants["EQUIPMENTS"]["LIGHT"])

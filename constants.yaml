@@ -1,6 +1,6 @@
 HOTEL_MANAGEMENT:
   EQUIPMENTS:
-              LILGHT: LIGHT
+              LIGHT: LIGHT
               AIRCONDITIONER: AIRCONDITIONER
   EQUIPMENTSTATE:
                 ON_STATE: "ON"
