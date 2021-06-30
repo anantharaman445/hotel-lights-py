@@ -21,12 +21,3 @@ def get_coridor_units(corridor):
     if corridor.airconditioner.equipment_state == equipment_state["ON_STATE"]:
         units += 10
     return units
-
-
-# def update_corridor_light_state(corridor):
-#     corridor.light = change_equipment_state(corridor.light)
-#     return corridor
-
-# def update_corridor_airconditioner_state(corridor):
-#     corridor.airconditioner = change_equipment_state(corridor.airconditioner)
-#     return corridor

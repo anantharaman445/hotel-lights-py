@@ -10,7 +10,7 @@ from Operations.equipment_operations import change_equipment_state
 floor_m = add_floors(1, 1, 2)
 # print(floor_m)
 floor = floor_m[1]
-# print(floor.maximum_allowed_chargable_units)
+# print(floor.maximum_allowed_units)
 print(get_floor_equipment_units(floor))
 
 
