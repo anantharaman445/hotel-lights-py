@@ -1,10 +1,11 @@
 
 from Assets.floor import Floor
 from Utils import utils
-from Operations.equipment_operations import change_equipment_state
-from Operations.corridor_operations import get_coridor_units
+from Operations.corridor_operations import get_coridor_units, update_corridor_light_state, update_corridor_airconditioner_state
 
 time_slot = utils.hotel_management_constants["TIMESLOT"]
+
+equipment_state = utils.hotel_management_constants["EQUIPMENTSTATE"]
 
 
 def add_floors(no_of_floors, main_corridors_per_floor, sub_corridor_per_floor):
@@ -35,4 +36,19 @@ def get_floor_equipment_units(floor):
         cost = cost + get_coridor_units(sub_corridor)
 
     return cost
+
+def switch_floor_equipments(floor, slor, switch_type="default"):
+    main_corridors = floor.floor_corridor_map["main_corridors"]
+    sub_corridors  = floor.floor_corridor_map["sub_corridors"]
+    
+    if switch_type == "default" and slot == time_slot["NIGHT"]:
+        for corridor_id, main_corridor in main_corridors.items():
+            main_corridors[corridor_id] = update_corridor_light_state(main_corridor, equipment_state["ON_STATE"])
+
+        
+    
+
+
+
+    return 0
 
