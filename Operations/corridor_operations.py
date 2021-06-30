@@ -12,7 +12,10 @@ time_slot = utils.hotel_management_constants["TIMESLOT"]
 
 
 
-def corridor_costs(corridor):
-    count = 0
-    
-    pass
+def get_coridor_units(corridor):
+    units = 0
+    if corridor.light.equipment_state == equipment_state["ON_STATE"]:
+        units += 5
+    if corridor.airconditioner.equipment_state == equipment_state["ON_STATE"]:
+        units += 10
+    return units

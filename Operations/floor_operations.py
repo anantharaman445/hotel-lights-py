@@ -1,6 +1,8 @@
 
 from Assets.floor import Floor
 from Utils import utils
+from Operations.equipment_operations import change_equipment_state
+from Operations.corridor_operations import get_coridor_units
 
 time_slot = utils.hotel_management_constants["TIMESLOT"]
 
@@ -21,9 +23,16 @@ light.type, powerconsumptionn, state
 
 """
 
-def get_floor_running_units(floor, time_slot):
+def get_floor_equipment_units(floor):
     cost = 0
-    main_corridors_len
+    main_corridors = floor.floor_corridor_map["main_corridors"]
+    sub_corridors  = floor.floor_corridor_map["sub_corridors"]
+
+    for corridor_id, main_corridor in main_corridors.items():
+        cost = cost + get_coridor_units(main_corridor)
+    
+    for corridor_id, sub_corridor in sub_corridors.items():
+        cost = cost + get_coridor_units(sub_corridor)
 
     return cost
 
