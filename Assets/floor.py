@@ -9,6 +9,7 @@ class Floor:
         self.total_main_corridors = main_corridors_per_floor
         self.total_sub_corridors = sub_corridor_per_floor
         self.floor_corridor_map = self.__get_corridors()
+        self.maximum_allowed_chargable_units = (self.total_main_corridors * 15) + (self.total_sub_corridors * 10)
 
     # __ indicates private functions of the class
     def __get_corridors(self):

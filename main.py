@@ -10,6 +10,8 @@ print(time_slot)
 floor_m = add_floors(1, 1, 2)
 print(floor_m)
 floor = floor_m[1]
+print(floor.maximum_allowed_chargable_units)
+
 main_corridor = floor.floor_corridor_map["main_corridors"]
 for key, value in main_corridor.items():
 
