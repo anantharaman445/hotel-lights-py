@@ -5,6 +5,6 @@ from Equipments.airconditioner import AirConditioner
 hotel_management_constants = utils.hotel_management_constants
 
 light = Light()
-ait_conditioner = AirConditioner()
-print(light.equipment_type, light.power_consumption)
-print(ait_conditioner.equipment_type, ait_conditioner.power_consumption)
+air_conditioner = AirConditioner()
+print(light.equipment_type, light.power_consumption, light.equipment_state)
+print(air_conditioner.equipment_type, air_conditioner.power_consumption, air_conditioner.equipment_state)
