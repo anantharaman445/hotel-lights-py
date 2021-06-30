@@ -22,7 +22,7 @@ floor = regular_shift_roaster(floor)
 for key, value in main_corridor.items():
     print(value.light.equipment_type, value.light.equipment_state)
 
-
+print(get_floor_equipment_units(floor))
 
 # main_corridor = floor.floor_corridor_map["main_corridors"]
 # for key, value in main_corridor.items():
