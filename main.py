@@ -1,27 +1,13 @@
-from Utils import utils
-from Assets.maincorridor import MainCorridor 
-from Assets.subcorridor import SubCorridor
-from Assets.floor import Floor
 
-hotel_management_constants = utils.hotel_management_constants
+from Operations.floor_operations import add_floors
 
+from Operations.corridor_operations import time_slot
 
+print(time_slot)
 
-
-
-
-
-# light = Light()
-# air_conditioner = AirConditioner()
-# print(light.equipment_type, light.power_consumption, light.equipment_state)
-# print(air_conditioner.equipment_type, air_conditioner.power_consumption, air_conditioner.equipment_state)
-
-# main_corridor = MainCorridor()
-# print(main_corridor.airconditioner.equipment_type, main_corridor.airconditioner.power_consumption)
-# print(main_corridor.corridor_type)
-
-floor = Floor(1, 2)
-main_corridor = floor.floor_map["sub_corridors"]
-for key, value in main_corridor.items():
-    print(value.airconditioner.equipment_type, value.airconditioner.power_consumption, value.airconditioner.equipment_state)
-# print(floor.floor_map["main_corridors"][0])
+# floor_m = add_floors(1, 1, 2)
+# print(floor_m)
+# floor = floor_m[1]
+# main_corridor = floor.floor_corridor_map["sub_corridors"]
+# for key, value in main_corridor.items():
+#     print(value.airconditioner.equipment_type, value.airconditioner.power_consumption, value.airconditioner.equipment_state)
