@@ -18,11 +18,11 @@ class Floor:
 
 
     def get_main_corridors(self):
-        self.floor_map["main_corridors"] = []
+        self.floor_map["main_corridors"] = {}
         for i in range(0, self.total_main_corridors):
-            self.floor_map["main_corridors"].append(MainCorridor())
+            self.floor_map["main_corridors"][i]=MainCorridor()
     
     def get_sub_corridors(self):
-        self.floor_map["sub_corridors"] = []
+        self.floor_map["sub_corridors"] = {}
         for i in range(0, self.total_sub_corridors):
-            self.floor_map["sub_corridors"].append(SubCorridor())
+            self.floor_map["sub_corridors"][i]=SubCorridor()
