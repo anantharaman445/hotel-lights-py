@@ -11,3 +11,8 @@ sensor_type = utils.hotel_management_constants["SENSORINPUT"]
 time_slot = utils.hotel_management_constants["TIMESLOT"]
 
 
+
+def corridor_costs(corridor):
+    count = 0
+    
+    pass
