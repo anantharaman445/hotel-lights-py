@@ -1,7 +1,8 @@
 
 from Assets.floor import Floor
 from Utils import utils
-from Operations.corridor_operations import get_coridor_units, update_corridor_light_state, update_corridor_airconditioner_state
+from Operations.corridor_operations import get_coridor_units
+from Operations.equipment_operations import change_equipment_state
 
 time_slot = utils.hotel_management_constants["TIMESLOT"]
 
@@ -37,18 +38,15 @@ def get_floor_equipment_units(floor):
 
     return cost
 
-def switch_floor_equipments(floor, slor, switch_type="default"):
+def regular_shift_roaster(floor):
+    # just turn off and turn on lights of main corridor of a floor based on shift
     main_corridors = floor.floor_corridor_map["main_corridors"]
-    sub_corridors  = floor.floor_corridor_map["sub_corridors"]
-    
-    if switch_type == "default" and slot == time_slot["NIGHT"]:
-        for corridor_id, main_corridor in main_corridors.items():
-            main_corridors[corridor_id] = update_corridor_light_state(main_corridor, equipment_state["ON_STATE"])
 
-        
-    
+    for corridor_id, main_corridor in main_corridors.items():
+        main_corridor.light = change_equipment_state(main_corridor.light)
+        main_corridors[corridor_id] = main_corridor
+    floor.floor_corridor_map["main_corridors"] = main_corridors
+    return floor
 
 
-
-    return 0
 

@@ -1,5 +1,5 @@
 
-from Operations.floor_operations import add_floors, get_floor_equipment_units
+from Operations.floor_operations import add_floors, get_floor_equipment_units, regular_shift_roaster
 
 from Operations.corridor_operations import time_slot
 
@@ -13,12 +13,23 @@ floor = floor_m[1]
 # print(floor.maximum_allowed_chargable_units)
 print(get_floor_equipment_units(floor))
 
+
+main_corridor = floor.floor_corridor_map["main_corridors"]
+for key, value in main_corridor.items():
+    print(value.light.equipment_type, value.light.equipment_state)
+
+floor = regular_shift_roaster(floor)
+for key, value in main_corridor.items():
+    print(value.light.equipment_type, value.light.equipment_state)
+
+
+
 # main_corridor = floor.floor_corridor_map["main_corridors"]
 # for key, value in main_corridor.items():
 
 #     print(value.airconditioner.equipment_type, value.airconditioner.power_consumption, value.airconditioner.equipment_state)
 
-#     value.airconditioner = change_equipment_state(value.airconditioner, "OFF")
+#     value.airconditioner = change_equipment_state(value.airconditioner)
 
 
 

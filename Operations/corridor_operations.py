@@ -23,10 +23,10 @@ def get_coridor_units(corridor):
     return units
 
 
-def update_corridor_light_state(corridor, state):
-    corridor.light = change_equipment_state(corridor.light, state)
-    return corridor
+# def update_corridor_light_state(corridor):
+#     corridor.light = change_equipment_state(corridor.light)
+#     return corridor
 
-def update_corridor_airconditioner_state(corridor, state):
-    corridor.airconditioner = change_equipment_state(corridor.airconditioner, state)
-    return corridor
+# def update_corridor_airconditioner_state(corridor):
+#     corridor.airconditioner = change_equipment_state(corridor.airconditioner)
+#     return corridor
