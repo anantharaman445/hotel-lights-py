@@ -1,4 +1,6 @@
 import main
-from Utils.utils import hotel_management_constants
+from Utils import utils
 
-print(hotel_management_constants["EQUIPMENTS"]["LIGHT"])
+hotel_management_constants = utils.hotel_management_constants
+
+print(hotel_management_constants["EQUIPMENT_CONSUMPTION"])
