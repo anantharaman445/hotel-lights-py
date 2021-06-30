@@ -1,11 +1,9 @@
 from Utils import utils
 import json
+from Equipments.equipments import Equipments
 
-
-hotel_management_constants = utils.hotel_management_constants["EQUIPMENTS"]["LIGHT"]
+equipments = utils.hotel_management_constants["EQUIPMENTS"]
 
 class Light:
-    def __init__(self):
-        self.equipment_type = hotel_management_constants["TYPE"]
-        self.power_consumption = hotel_management_constants["POWER_CONSUMPTION"]
-        
+    def __init__(self):   
+        Equipments.__init__(self, equipments["LIGHT"])
