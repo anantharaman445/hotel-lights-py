@@ -23,8 +23,10 @@ corridor = object = obj.airconditioner, obj.light
 light.type, powerconsumptionn, state
     print(value.airconditioner.equipment_type, value.airconditioner.power_consumption, value.airconditioner.equipment_state)
 
+1. check cost for every shift roaster
+2. check cost for every movement
 """
-
+# move this to corridor ops
 def get_floor_equipment_units(floor):
     cost = 0
     main_corridors = floor.floor_corridor_map["main_corridors"]
