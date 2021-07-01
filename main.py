@@ -1,6 +1,4 @@
 
-# from Utils.floor_utils import add_floors
-
 
 from hotel_automation import HotelAutomation as ha
 
