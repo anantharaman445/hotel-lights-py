@@ -23,22 +23,22 @@ corridor = object = obj.airconditioner, obj.light
 light.type, powerconsumptionn, state
     print(value.airconditioner.equipment_type, value.airconditioner.power_consumption, value.airconditioner.equipment_state)
 
-1. check cost for every shift roaster
-2. check cost for every movement
+1. check units_consumptionn for every shift roaster
+2. check units_consumptionn for every movement
 """
 # move this to corridor ops
 def get_floor_equipment_units(floor):
-    cost = 0
+    units_consumptionn = 0
     main_corridors = floor.floor_corridor_map["main_corridors"]
     sub_corridors  = floor.floor_corridor_map["sub_corridors"]
 
     for corridor_id, main_corridor in main_corridors.items():
-        cost = cost + get_coridor_units(main_corridor)
+        units_consumptionn = units_consumptionn + get_coridor_units(main_corridor)
     
     for corridor_id, sub_corridor in sub_corridors.items():
-        cost = cost + get_coridor_units(sub_corridor)
+        units_consumptionn = units_consumptionn + get_coridor_units(sub_corridor)
 
-    return cost
+    return units_consumptionn
 
 def regular_shift_roaster(floor):
     # just turn off and turn on lights of main corridor of a floor based on shift
