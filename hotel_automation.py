@@ -17,7 +17,7 @@ class HotelAutomation:
     
     def movement_change(self, floor_id, sub_corridor_id, movement = hotel_management_constants["SENSORINPUT"]["MOVEMENT"]):
         """
-        1. make default floor movement for any subcorridor(change the light status)
+        1. make default floor movement for any given subcorridor(change the light status)
         2. validate for power consumptions
         3. if power consumption exceeds expected and sensor type is MOVEMENT then turn the ac off in rest of the sub corridors until the consumption is within control
         """
@@ -33,7 +33,8 @@ class HotelAutomation:
             if movement == hotel_management_constants["SENSORINPUT"]["MOVEMENT"] and power_saver == "AIRCONDITIONER":
                 sub_corridor_keys.remove(sub_corridor_id)
                 for key in range(0,len(sub_corridor_keys)):
-
+                    # if not self.floor_map[floor_id].validate_power_consumption():
+                    #TODO : need to confirm if above `IF` condition needs to be checked or we can switch off all the impacted sub corridors
                     self.floor_map = change_ac_state_sub_corridor(self.floor_map, floor_id, sub_corridor_keys[key])
                     self.floor_map[floor_id].non_movement_sub_corridors.append(sub_corridor_keys[key])
 
