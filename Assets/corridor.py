@@ -10,8 +10,7 @@ class Corridor:
         self.corridor_type = corridor_type
     
     def compute_corridor_units(self):
-        total_units = 0
-        light_units = total_units+ self.light.get_equipment_consumption()
-        ac_units = total_units + self.airconditioner.get_equipment_consumption()
-        return total_units
+        light_units = self.light.get_equipment_consumption()
+        ac_units = self.airconditioner.get_equipment_consumption()
+        return light_units+ac_units
     
