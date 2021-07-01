@@ -9,3 +9,14 @@ class Equipments:
         self.equipment_state = equipment["DEFAULT_STATE"]
         self.power_consumption_off_state = 0
     
+    def change_equipment_state(self):
+        if self.equipment_state == equipment_state["ON_STATE"]:
+            self.equipment_state = equipment_state["OFF_STATE"]
+        else:
+            self.equipment_state = equipment_state["ON_STATE"]
+    
+    def get_equipment_consumption(self):
+        if self.equipment_state == equipment_state["ON_STATE"]:
+            return self.power_consumption
+        else:
+            return self.power_consumption_off_state
