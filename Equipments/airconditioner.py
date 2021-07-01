@@ -15,3 +15,9 @@ class AirConditioner:
             self.equipment_state = equipment_state["OFF_STATE"]
         else:
             self.equipment_state = equipment_state["ON_STATE"]
+    
+    def get_equipment_consumption(self):
+        if self.equipment_state == equipment_state["ON_STATE"]:
+            return self.power_consumption
+        else:
+            return 0

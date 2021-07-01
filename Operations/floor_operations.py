@@ -32,10 +32,10 @@ def get_floor_equipment_units(floor):
     sub_corridors  = floor.floor_corridor_map["sub_corridors"]
 
     for corridor_id, main_corridor in main_corridors.items():
-        units_consumptionn = units_consumptionn + get_coridor_units(main_corridor)
+        units_consumptionn = units_consumptionn + main_corridor.compute_corridor_units()
     
     for corridor_id, sub_corridor in sub_corridors.items():
-        units_consumptionn = units_consumptionn + get_coridor_units(sub_corridor)
+        units_consumptionn = units_consumptionn + sub_corridor.compute_corridor_units()
 
     return units_consumptionn
 
