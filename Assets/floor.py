@@ -10,6 +10,7 @@ class Floor:
         self.total_sub_corridors = sub_corridor_per_floor
         self.floor_corridor_map = self.__create_corridors()
         self.maximum_allowed_units = (self.total_main_corridors * 15) + (self.total_sub_corridors * 10)
+        self.affected_sub_corridors_power_consumption = []
 
     # __ indicates private functions of the class
     def __create_corridors(self):
@@ -42,10 +43,10 @@ class Floor:
 
         return units_consumptionn
     
-    def floor_time_slot_shift(self):
-        main_corridors = self.floor_corridor_map["main_corridors"]
-        for corridor_id, main_corridor in main_corridors.items():
-            main_corridor.light.change_equipment_state() 
+    def floor_time_slot_shift(self, corridor_key="main_corridors"):
+        corridor = self.floor_corridor_map[corridor_key]
+        for corridor_id, corridor in corridor.items():
+            corridor.light.change_equipment_state() 
     
     def validate_power_consumption(self):
         return self.maximum_allowed_units >= self.get_floor_equipment_units()
