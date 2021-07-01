@@ -1,8 +1,8 @@
-from Utils import utils
+from Config import hotel_management_constants
 from Assets.maincorridor import MainCorridor
 from Assets.subcorridor import SubCorridor
 
-corridor_type = utils.hotel_management_constants["CORRIDORTYPE"]
+corridor_type = hotel_management_constants["CORRIDORTYPE"]
 
 class Floor:
     def __init__(self, main_corridors_per_floor, sub_corridor_per_floor):

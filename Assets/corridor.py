@@ -1,7 +1,7 @@
-from Utils import utils
+from Config import hotel_management_constants
 from Equipments.light import Light
 from Equipments.airconditioner import AirConditioner 
-equipments = utils.hotel_management_constants["EQUIPMENTS"]
+equipments = hotel_management_constants["EQUIPMENTS"]
 
 class Corridor:
     def __init__(self, corridor_type):

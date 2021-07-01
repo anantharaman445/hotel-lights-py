@@ -1,6 +1,6 @@
-from Utils import utils
+from Config import hotel_management_constants
 import json
-equipment_state = utils.hotel_management_constants["EQUIPMENTSTATE"]
+equipment_state = hotel_management_constants["EQUIPMENTSTATE"]
 
 class Equipments:
     def __init__(self, equipment):
