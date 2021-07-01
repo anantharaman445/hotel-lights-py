@@ -1,7 +1,7 @@
 
 from Assets.floor import Floor
 from Utils import utils
-from Operations.corridor_operations import get_coridor_units
+
 
 time_slot = utils.hotel_management_constants["TIMESLOT"]
 
