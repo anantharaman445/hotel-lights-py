@@ -46,4 +46,6 @@ class Floor:
         main_corridors = self.floor_corridor_map["main_corridors"]
         for corridor_id, main_corridor in main_corridors.items():
             main_corridor.light.change_equipment_state() 
-        
+    
+    def validate_power_consumption(self):
+        return self.maximum_allowed_units >= self.get_floor_equipment_units()

@@ -15,3 +15,5 @@ class HotelAutomation:
         for floor_id, floor in self.floor_map.items():
             floor.floor_time_slot_shift()
     
+    def validate_power_consumption(self):
+        return None
