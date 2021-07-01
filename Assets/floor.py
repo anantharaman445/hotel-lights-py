@@ -49,3 +49,9 @@ class Floor:
     
     def validate_power_consumption(self):
         return self.maximum_allowed_units >= self.get_floor_equipment_units()
+    
+    def change_sub_corridor_light_state(self, sub_corridor_id):
+        self.floor_corridor_map["sub_corridors"][sub_corridor_id].change_sub_corridor_light_state()
+
+    def change_sub_corridor_ac_state(self, sub_corridor_id):
+        self.floor_corridor_map["sub_corridors"][sub_corridor_id].change_sub_corridor_airconditioner_state()
