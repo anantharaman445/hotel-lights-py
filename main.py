@@ -1,10 +1,7 @@
 
 from Operations.floor_operations import add_floors, get_floor_equipment_units, regular_shift_roaster
 
-from Operations.corridor_operations import time_slot
 
-
-# print(time_slot)
 
 floor_m = add_floors(1, 1, 2)
 # print(floor_m)
