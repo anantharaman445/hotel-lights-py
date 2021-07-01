@@ -28,3 +28,16 @@ class Floor:
         self.floor_corridor_map["sub_corridors"] = {}
         for i in range(0, self.total_sub_corridors):
             self.floor_corridor_map["sub_corridors"][i+1]=SubCorridor(corridor_type["SUBCORRIDOR"])
+
+    def get_floor_equipment_units(self):
+        units_consumptionn = 0
+        main_corridors = self.floor_corridor_map["main_corridors"]
+        sub_corridors  = self.floor_corridor_map["sub_corridors"]
+
+        for corridor_id, main_corridor in main_corridors.items():
+            units_consumptionn = units_consumptionn + main_corridor.compute_corridor_units()
+        
+        for corridor_id, sub_corridor in sub_corridors.items():
+            units_consumptionn = units_consumptionn + sub_corridor.compute_corridor_units()
+
+        return units_consumptionn

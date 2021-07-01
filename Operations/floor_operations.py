@@ -25,19 +25,7 @@ light.type, powerconsumptionn, state
 1. check units_consumptionn for every shift roaster
 2. check units_consumptionn for every movement
 """
-# move this to corridor ops
-def get_floor_equipment_units(floor):
-    units_consumptionn = 0
-    main_corridors = floor.floor_corridor_map["main_corridors"]
-    sub_corridors  = floor.floor_corridor_map["sub_corridors"]
 
-    for corridor_id, main_corridor in main_corridors.items():
-        units_consumptionn = units_consumptionn + main_corridor.compute_corridor_units()
-    
-    for corridor_id, sub_corridor in sub_corridors.items():
-        units_consumptionn = units_consumptionn + sub_corridor.compute_corridor_units()
-
-    return units_consumptionn
 
 def regular_shift_roaster(floor):
     # just turn off and turn on lights of main corridor of a floor based on shift
