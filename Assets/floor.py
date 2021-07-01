@@ -41,3 +41,9 @@ class Floor:
             units_consumptionn = units_consumptionn + sub_corridor.compute_corridor_units()
 
         return units_consumptionn
+    
+    def floor_time_slot_shift(self):
+        main_corridors = self.floor_corridor_map["main_corridors"]
+        for corridor_id, main_corridor in main_corridors.items():
+            main_corridor.light.change_equipment_state() 
+        

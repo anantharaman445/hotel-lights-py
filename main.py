@@ -1,5 +1,5 @@
 
-from Operations.floor_operations import add_floors, regular_shift_roaster
+from Operations.floor_operations import add_floors
 
 
 
@@ -15,7 +15,8 @@ for key, value in main_corridor.items():
     print(value.light.equipment_type, value.light.equipment_state)
     print(value.airconditioner.equipment_type, value.airconditioner.equipment_state)
 
-floor = regular_shift_roaster(floor)
+
+floor.floor_time_slot_shift()
 for key, value in main_corridor.items():
     print(value.light.equipment_type, value.light.equipment_state)
     print(value.airconditioner.equipment_type, value.airconditioner.equipment_state)

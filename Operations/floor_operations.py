@@ -27,14 +27,5 @@ light.type, powerconsumptionn, state
 """
 
 
-def regular_shift_roaster(floor):
-    # just turn off and turn on lights of main corridor of a floor based on shift
-    
-    main_corridors = floor.floor_corridor_map["main_corridors"]
-    for corridor_id, main_corridor in main_corridors.items():
-        main_corridor.light.change_equipment_state() 
-    
-    return floor
-
 
 
