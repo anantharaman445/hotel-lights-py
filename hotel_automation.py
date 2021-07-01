@@ -26,11 +26,11 @@ class HotelAutomation:
         expected_power_consumption = self.floor_map[floor_id].validate_power_consumption()
         
         sensor_inputs = hotel_management_constants["SENSORINPUT"]
-        power_saver = sensor_inputs["POWER_SAVER"]
+        # power_saver = sensor_inputs["POWER_SAVER"]
 
         # exceeded power usasge
         if not expected_power_consumption:
-            if movement == hotel_management_constants["SENSORINPUT"]["MOVEMENT"] and power_saver == "AIRCONDITIONER":
+            if movement == hotel_management_constants["SENSORINPUT"]["MOVEMENT"]:
                 sub_corridor_keys.remove(sub_corridor_id)
                 for key in range(0,len(sub_corridor_keys)):
                     # if not self.floor_map[floor_id].validate_power_consumption():
@@ -40,7 +40,7 @@ class HotelAutomation:
 
                 return self.floor_map
         
-        if movement == hotel_management_constants["SENSORINPUT"]["NO_MOVEMENT"] and power_saver == "AIRCONDITIONER":
+        if movement == hotel_management_constants["SENSORINPUT"]["NO_MOVEMENT"]:
             affected_sub_corridors = self.floor_map[floor_id].non_movement_sub_corridors
             for key in range(0,len(affected_sub_corridors)):
                 self.floor_map = change_ac_state_sub_corridor(self.floor_map, floor_id, affected_sub_corridors[key])
