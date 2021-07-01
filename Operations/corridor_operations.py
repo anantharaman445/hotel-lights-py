@@ -1,7 +1,6 @@
 from Utils import utils
 from Assets.corridor import Corridor
 
-from Operations.equipment_operations import change_equipment_state
 
 
 corridor_type = utils.hotel_management_constants["CORRIDORTYPE"]
