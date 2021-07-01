@@ -8,7 +8,8 @@ yy.time_slot_change()
 yy.print_floor_states()
 yy.movement_change(1, 2)
 yy.print_floor_states()
-
+yy.movement_change(1, 2)
+yy.print_floor_states()
 
 # print(yy.floor_map[1].get_floor_equipment_units(), yy.floor_map[1].maximum_allowed_units)
 

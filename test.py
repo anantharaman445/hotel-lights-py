@@ -1,14 +1,19 @@
 import unittest
 import json
-from Utils import utils
-
-constants = utils.hotel_management_constants
+from Config import hotel_management_constants as constants
 
 
-class Tests(unittest.TestCase):
-    def test_1(self):
-        pass
+from hotel_automation import HotelAutomation as ha
 
+class TestHotel(unittest.TestCase):
 
-if __name__ == "main":
+    def test_time_slot(self):
+        hotel = ha(1,1,2)
+        self.assertEqual(hotel.time_slot, constants["TIMESLOT"]["DAY"])
+        hotel.time_slot_change()
+        self.assertNotEqual(hotel.time_slot, constants["TIMESLOT"]["DAY"])
+        self.assertEqual(hotel.time_slot, constants["TIMESLOT"]["NIGHT"])
+        
+
+if __name__ == "__main__":
     unittest.main()
