@@ -20,4 +20,4 @@ class AirConditioner:
         if self.equipment_state == equipment_state["ON_STATE"]:
             return self.power_consumption
         else:
-            return 0
+            return self.power_consumption_off_state

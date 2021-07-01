@@ -7,4 +7,5 @@ class Equipments:
         self.equipment_type = equipment["TYPE"]
         self.power_consumption = equipment["POWER_CONSUMPTION"]
         self.equipment_state = equipment["DEFAULT_STATE"]
+        self.power_consumption_off_state = 0
     
