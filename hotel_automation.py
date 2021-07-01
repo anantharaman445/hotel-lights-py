@@ -1,4 +1,4 @@
-from Utils.floor_utils import create_floors, floor_movement_sub_corridor
+from Utils.floor_utils import create_floors, floor_movement_sub_corridor, change_ac_state_sub_corridor
 from Config import hotel_management_constants
 
 class HotelAutomation:
@@ -15,13 +15,41 @@ class HotelAutomation:
         for floor_id, floor in self.floor_map.items():
             floor.floor_time_slot_shift()
     
-    def movement_change(self, floor_id, sub_corridor_id):
+    def movement_change(self, floor_id, sub_corridor_id, movement = hotel_management_constants["SENSORINPUT"]["MOVEMENT"]):
+        """
+        1. make default floor movement for any subcorridor(change the light status)
+        2. validate for power consumptions
+        3. if power consumption exceeds expected and sensor type is MOVEMENT then turn the ac off in rest of the sub corridors until the consumption is within control
+        """
         self.floor_map = floor_movement_sub_corridor(self.floor_map, floor_id, sub_corridor_id)
+        sub_corridor_keys = list(self.floor_map[floor_id].floor_corridor_map["sub_corridors"].keys())
+        expected_power_consumption = self.floor_map[floor_id].validate_power_consumption()
+        
+        sensor_inputs = hotel_management_constants["SENSORINPUT"]
+        power_saver = sensor_inputs["POWER_SAVER"]
+
+        # exceeded power usasge
+        if not expected_power_consumption:
+            if movement == hotel_management_constants["SENSORINPUT"]["MOVEMENT"] and power_saver == "AIRCONDITIONER":
+                sub_corridor_keys.remove(sub_corridor_id)
+                for key in range(0,len(sub_corridor_keys)):
+
+                    self.floor_map = change_ac_state_sub_corridor(self.floor_map, floor_id, sub_corridor_keys[key])
+                    self.floor_map[floor_id].non_movement_sub_corridors.append(sub_corridor_keys[key])
+
+                return self.floor_map
+        
+        if movement == hotel_management_constants["SENSORINPUT"]["NO_MOVEMENT"] and power_saver == "AIRCONDITIONER":
+            affected_sub_corridors = self.floor_map[floor_id].non_movement_sub_corridors
+            for key in range(0,len(affected_sub_corridors)):
+                self.floor_map = change_ac_state_sub_corridor(self.floor_map, floor_id, affected_sub_corridors[key])
+        return self.floor_map
+
 
 
     def print_floor_states(self):
         for floor_id, floor in self.floor_map.items():
-            print("::::States of Floor {}::::".format(floor_id))
+            print("::::Status of Floor {}::::".format(floor_id))
             main_corridors = floor.floor_corridor_map["main_corridors"]
             sub_corridors = floor.floor_corridor_map["sub_corridors"]
 

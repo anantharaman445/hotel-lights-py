@@ -10,7 +10,7 @@ class Floor:
         self.total_sub_corridors = sub_corridor_per_floor
         self.floor_corridor_map = self.__create_corridors()
         self.maximum_allowed_units = (self.total_main_corridors * 15) + (self.total_sub_corridors * 10)
-        self.affected_sub_corridors_power_consumption = []
+        self.non_movement_sub_corridors = []
 
     # __ indicates private functions of the class
     def __create_corridors(self):

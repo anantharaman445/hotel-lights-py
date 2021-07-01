@@ -11,3 +11,8 @@ def floor_movement_sub_corridor(floor_map, floor_id, sub_corridor_id):
     floor_map[floor_id].change_sub_corridor_light_state(sub_corridor_id)
     return floor_map
 
+def change_ac_state_sub_corridor(floor_map, floor_id, sub_corridor_id):
+    floor_map[floor_id].change_sub_corridor_ac_state(sub_corridor_id)
+    return floor_map
+
+
